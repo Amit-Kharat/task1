@@ -1,0 +1,64 @@
+<div class="content">
+  <h4>Task 1 : Filtering Data on Date</h4>
+  <div class="row ">
+    <div class="col-xs-6 col-6 col-md-6 form-group">
+      <button class="btn btn-primary" (click)="yesterDaysData()">Yesterday</button>
+      <button class="btn btn-info" (click)="lastWeekData()">Last Week</button>
+      <button class="btn btn-warning" (click)="lastMonthData()">Last Month</button>
+    </div>
+    <div class="col-6 col-md-6">
+      <div class="row">
+        <div class="col-xs-6 col-6 col-md-6 form-group">
+          <input type="date" class="form-control" [(ngModel)]="myDateValue">
+        </div>
+        <div class="col-xs-6 col-6 col-md-6 form-group">
+          <input type="date" class="form-control" [(ngModel)]="toDate">
+        </div>
+        <div class="col-xs-12 col-12 col-md-12" style="text-align: center;">
+          <button class=" btn btn-primary filter" (click)="filterDate()">Filter</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<table class="table table-bordered" style="width:100%">
+  <thead>
+    <tr>
+      <th>Division</th>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Notes</th>
+      <th>Bunting</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let div of duplicateArray">
+      <tr *ngFor="let item of div?.events">
+        <td>{{div.division}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.date}}</td>
+        <td>{{item.notes}}</td>
+        <td>{{item.bunting}}</td>
+      </tr>
+      <!-- <tr *ngFor="let item of duplicateArray?.scotland.events">
+      <td>{{item.division}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.date}}</td>
+      <td>{{item.notes}}</td>
+      <td>{{item.bunting}}</td>
+    </tr>
+    <tr *ngFor="let item of duplicateArray?.northern-ireland.events">
+      <td>{{item.division}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.date}}</td>
+      <td>{{item.notes}}</td>
+      <td>{{item.bunting}}</td>
+    </tr> -->
+    </ng-container>
+
+  </tbody>
+</table>
